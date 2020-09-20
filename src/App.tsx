@@ -3,9 +3,8 @@ import './App.scss'
 
 function App () {
   return (
-    <div className="App">
+    <div className="top-container">
       <div className="nav-bar">
-        <header className="App-header">
           <a className="logo" href="/">
             <svg viewBox="0 0 1134 340"
                  className="spotify-logo--text">
@@ -95,8 +94,8 @@ function App () {
             </li>
           </ul>
           <h1 className="Rootlist__playlists-header">Playlists</h1>
-        </header>
       </div>
+      <div className="main-view"></div>
     </div>
   )
 }
