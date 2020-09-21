@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.scss'
-import { Navbar } from './features/navbar/Navbar'
+import { NavBar } from './features/nav-bar/NavBar'
 import { MainView } from './features/main-view/MainView'
 
 function App () {
   return (
     <div className="top-container">
-      <Navbar></Navbar>
+      <NavBar></NavBar>
       <MainView></MainView>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
-import './Navbar.scss'
+import './NavBar.scss'
 
-export const Navbar: React.FC = () => {
+export const NavBar: React.FC = () => {
   return (
     <div className="nav-bar">
       <a className="logo" href="/">
