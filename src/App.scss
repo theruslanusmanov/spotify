@@ -1,5 +1,4 @@
 .top-container {
-  text-align: center;
   display: flex;
   height: 100%;
   min-height: 600px;
@@ -11,7 +10,7 @@
   grid-template-rows: 1fr auto;
   grid-template-columns: auto 1fr;
   grid-template-areas:
-        "nav-bar main-view buddy-feed"
+        "navbar main-view main-view"
         "now-playing-bar now-playing-bar now-playing-bar";
 }
 
