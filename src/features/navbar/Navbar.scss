@@ -6,6 +6,9 @@
 
   ul {
     list-style: none;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 700;
 
     li {
       cursor: pointer;
@@ -14,9 +17,27 @@
       padding: 0 16px;
       height: 40px;
       color: #b3b3b3;
+      border-radius: 4px;
 
       &:hover {
         color: #ffffff;
+
+        svg path {
+          fill: #ffffff;
+        }
+      }
+
+      &.active {
+        background-color: #282828;
+        color: #ffffff;
+
+        svg path {
+          fill: #ffffff;
+        }
+      }
+
+      svg {
+        margin-right: 16px;
       }
     }
   }
@@ -26,6 +47,7 @@
   cursor: pointer;
   padding-top: 24px;
   padding-left: 24px;
+  padding-bottom: 24px;
   width: 131px;
   height: 40px;
 }
