@@ -3,7 +3,18 @@
   background-color: rgba(0,0,0,.8);
   width: 232px;
   z-index: 3;
+}
 
+.spotify-logo--text {
+  cursor: pointer;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  width: 131px;
+  height: 40px;
+}
+
+.menu {
   ul {
     list-style: none;
     padding: 0 8px;
@@ -43,15 +54,6 @@
   }
 }
 
-.spotify-logo--text {
-  cursor: pointer;
-  padding-top: 24px;
-  padding-left: 24px;
-  padding-bottom: 24px;
-  width: 131px;
-  height: 40px;
-}
-
 .playlists {
   margin-top: 24px;
 
@@ -63,6 +65,40 @@
     letter-spacing: .1em;
     text-transform: uppercase;
     margin: 0 24px 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+
+    li {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      height: 40px;
+      color: #b3b3b3;
+      border-radius: 4px;
+
+      &:hover {
+        color: #ffffff;
+
+        .add {
+          background-color: #ffffff;
+        }
+      }
+
+      &.active {
+        background-color: #282828;
+        color: #ffffff;
+      }
+
+      span {
+        margin-left: 16px;
+      }
+    }
   }
 
   .add {
