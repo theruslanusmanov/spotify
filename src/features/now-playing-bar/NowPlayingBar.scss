@@ -1,126 +1,62 @@
-.Root__now-playing-bar {
+.now-playing-bar {
   grid-area: now-playing-bar;
   background-color: #181818;
   width: 100%;
   z-index: 4;
-}
-
-.now-playing-bar-container {
-  min-width: 620px;
-  background-color: #282828;
-  border-top: 1px solid #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 91px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: auto;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.now-playing-bar, .now-playing-bar-hidden {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  justify-content: space-around;
   align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0 16px;
-}
 
-.now-playing-bar__left {
-  width: 30%;
-  min-width: 180px;
-}
+  &__left, &__center, &__right {
+    display: flex;
+    align-items: center;
+  }
 
-.now-playing-bar__center {
-  width: 40%;
-  max-width: 722px;
-}
+  &__left, &__right {
+    width: 30%;
+    justify-content: flex-start;
+  }
 
-.now-playing, .now-playing-bar__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  &__center {
+    width: 40%;
+  }
 }
 
 .now-playing {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  -webkit-transition: -webkit-transform .25s cubic-bezier(.3,0,0,1);
-  transition: -webkit-transform .25s cubic-bezier(.3,0,0,1);
-  transition: transform .25s cubic-bezier(.3,0,0,1);
-  transition: transform .25s cubic-bezier(.3,0,0,1),-webkit-transform .25s cubic-bezier(.3,0,0,1);
-}
-.now-playing, .now-playing-bar__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
 
-.player-controls, .player-controls__buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-direction: normal;
-}
-.player-controls {
-  -webkit-box-orient: vertical;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+  &__cover-art {
+    width: 56px;
+    height: 56px;
+    background-color: #b3b3b3;
+  }
 
-.player-controls__buttons {
-  margin-bottom: 12px;
-  width: 224px;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-}
-.player-controls, .player-controls__buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-direction: normal;
+  &__song {
+    margin: 0 14px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 400;
+
+    &__name {
+      color: #ffffff;
+    }
+
+    &__author {
+      color: #b3b3b3;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 .playback-bar {
+  height: 16px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,20 +71,26 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
+  &__progress-time {
+    min-width: 40px;
+    text-align: center;
+  }
 }
 
-
-.ExtraControls {
+.progress-bar {
+  height: 12px;
+  position: relative;
+  width: 100%;
+  background-color: #535353;
+  border-radius: 2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  height: 4px;
+  width: 100%;
+  overflow: hidden;
+  min-width: 100%;
+  height: 4px;
+  border-radius: 2px;
 }
