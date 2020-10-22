@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import './App.scss'
-import { Navbar } from './features/navbar/Navbar'
-import { MainView } from './features/main-view/MainView'
-import { TopBar } from './features/top-bar/TopBar'
-import { NowPlayingBar } from './features/now-playing-bar/NowPlayingBar'
+import { Navbar } from './components/navbar/Navbar'
+import { MainView } from './components/main-view/MainView'
+import { TopBar } from './components/top-bar/TopBar'
+import { NowPlayingBar } from './components/now-playing-bar/NowPlayingBar'
 import AuthorizationService from './services/authorization-service'
 
 function App () {
