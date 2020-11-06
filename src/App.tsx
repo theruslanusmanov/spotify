@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './App.scss'
 import { Navbar } from './components/navbar/Navbar'
 import { MainView } from './components/main-view/MainView'
@@ -13,14 +13,16 @@ const mapState = (state: RootState) => ({
 })
 
 const mapDispatch = {
-  setToken: (token: string) => setToken(token)
+  setToken: (token: string) => setToken(token),
 }
 
 const connector = connect(mapState, mapDispatch)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-function App () {
+type Props = PropsFromRedux
+
+function App (props: Props) {
 
   useEffect(() => {
     /*const authService = new AuthorizationService();
@@ -37,7 +39,7 @@ function App () {
       window.location.href =
         'https://accounts.spotify.com/authorize?client_id=230be2f46909426b8b80cac36446b52a&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:3000/callback'
     } else {
-      setToken(hashParams.access_token)
+      props.setToken(hashParams.access_token)
     }
   }, [])
 
