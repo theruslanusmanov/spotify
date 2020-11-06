@@ -1,39 +1,27 @@
-import {
-  applyMiddleware,
-  compose,
-  configureStore,
-  createStore,
-} from '@reduxjs/toolkit'
-import counterReducer from './counter/counterSlice';
-import userReducer from './user/user.reducer'
+import { applyMiddleware, compose, createStore } from '@reduxjs/toolkit'
 import rootReducers from './reducers'
-import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware from 'redux-saga'
+import { initialState } from './rootState'
 
 // Todo: https://github.com/Lemoncode/redux-sagas-typescript-by-example/tree/master/05_all/src
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : any;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
   }
 }
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware()
 
 const composeEnhancer =
   (process.env.NODE_ENV !== 'production' &&
     window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']) ||
-  compose;
+  compose
 
 export const store = createStore(
   rootReducers,
-  {},
-  composeEnhancer(applyMiddleware(sagaMiddleware))
-);
+  initialState,
+  composeEnhancer(applyMiddleware(sagaMiddleware)),
+)
 
 // sagaMiddleware.run(rootSaga);
 
-export default configureStore({
-  reducer: {
-    counter: counterReducer,
-    user: userReducer,
-  },
-});
