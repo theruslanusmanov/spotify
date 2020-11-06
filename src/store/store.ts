@@ -1,6 +1,7 @@
 import { applyMiddleware, compose, createStore } from '@reduxjs/toolkit'
 import rootReducers from './reducers'
 import createSagaMiddleware from 'redux-saga'
+import { initialState } from './rootState'
 
 // Todo: https://github.com/Lemoncode/redux-sagas-typescript-by-example/tree/master/05_all/src
 declare global {
@@ -18,7 +19,7 @@ const composeEnhancer =
 
 export const store = createStore(
   rootReducers,
-  {},
+  initialState,
   composeEnhancer(applyMiddleware(sagaMiddleware)),
 )
 
