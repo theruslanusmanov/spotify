@@ -12,21 +12,11 @@ export function * spotifySagaWatcher () {
 
 function * loadSongsSagaWorker (action: any) {
   try {
-    const response = yield call(fetchSongsAPI, action.payload)
+    const response = yield call(SpotifyApiService.fetchSongs, action.payload)
     yield put(fetchSongsSuccess(response))
   } catch (error) {
     yield put(fetchSongsError(error))
   }
-}
-
-async function fetchSongsAPI (token: any) {
-  return await fetch(`https://api.spotify.com/v1/me/tracks?limit=50`,
-    {
-      method: 'GET',
-      headers: new Headers({
-        'Authorization': `Bearer ${token}`,
-      }),
-    }).then((res: Response) => res.json())
 }
 
 export const spotifySagas = [spotifySagaWatcher]
