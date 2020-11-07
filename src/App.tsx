@@ -25,6 +25,8 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux
 
+// TODO: new Audio() - get from store
+// url - https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a
 function App (props: Props) {
 
   useEffect(() => {
@@ -45,6 +47,8 @@ function App (props: Props) {
       props.setToken(hashParams.access_token)
       props.playSong(hashParams.access_token)
       props.fetchSongs(hashParams.access_token)
+      const audio = new Audio('https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a');
+      // audio.play();
     }
   }, [])
 
