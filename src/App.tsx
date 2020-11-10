@@ -8,10 +8,11 @@ import { connect, ConnectedProps } from 'react-redux'
 import { RootState } from './store/root.state'
 import { setToken } from './store/user/user.actions'
 import { fetchSongs, playSong } from './store/spotify/spotify.actions'
+import getTrackSelector from "./store/spotify/spotify.selector";
 
 const mapState = (state: RootState) => ({
   token: state.user.token,
-  song: state?.spotify?.tracks?.items?.length > 0 ? state?.spotify?.tracks?.items[0]?.track?.preview_url : ''
+  song: getTrackSelector(state)
 })
 
 const mapDispatch = {
@@ -46,8 +47,6 @@ function App (props: Props) {
       props.setToken(hashParams.access_token)
       props.playSong(hashParams.access_token)
       props.fetchSongs(hashParams.access_token)
-      // const audio = new Audio('https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a');
-      // audio.play();
     }
   }, [])
 
