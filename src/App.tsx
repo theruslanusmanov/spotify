@@ -11,6 +11,7 @@ import { fetchSongs, playSong } from './store/spotify/spotify.actions'
 
 const mapState = (state: RootState) => ({
   token: state.user.token,
+  song: state?.spotify?.tracks?.items?.length > 0 ? state?.spotify?.tracks?.items[0]?.track?.preview_url : ''
 })
 
 const mapDispatch = {
@@ -25,8 +26,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux
 
-// TODO: new Audio() - get from store
-// url - https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a
 function App (props: Props) {
 
   useEffect(() => {
@@ -47,10 +46,15 @@ function App (props: Props) {
       props.setToken(hashParams.access_token)
       props.playSong(hashParams.access_token)
       props.fetchSongs(hashParams.access_token)
-      const audio = new Audio('https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a');
+      // const audio = new Audio('https://p.scdn.co/mp3-preview/f5d7783ee0193444b6277ce67a51d20af0e8426c?cid=230be2f46909426b8b80cac36446b52a');
       // audio.play();
     }
   }, [])
+
+  useEffect(() => {
+    const audio = new Audio(props.song);
+    // audio.play()
+  }, [props.song])
 
   return (
     <div className="top-container">

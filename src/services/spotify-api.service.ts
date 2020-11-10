@@ -1,12 +1,27 @@
-export class SpotifyApiService {
+import {ApiService} from "./api-service";
 
-  public static async fetchSongs (token: string): Promise<any> {
-    return await fetch(`https://api.spotify.com/v1/me/tracks?limit=50`,
-      {
-        method: 'GET',
-        headers: new Headers({
-          'Authorization': `Bearer ${token}`,
-        }),
-      }).then((res: Response) => res.json())
-  }
+interface SpotifyApi {
+
+    /**
+     * GET: /v1/me/tracks
+     * Get Several Tracks.
+     * @param token - A valid access token from the Spotify Accounts service.
+     * @returns: tracks
+     */
+    getTracks(token: string): Promise<any>
+}
+
+export class SpotifyApiService implements ApiService, SpotifyApi {
+    private static readonly HOST = 'https://api.spotify.com'
+
+    public async getTracks(token: string): Promise<any> {
+        const url = `${SpotifyApiService.HOST}/v1/me/tracks?limit=50`
+
+        const method = 'GET'
+        const headers = new Headers({'Authorization': `Bearer ${token}`})
+
+        const options = {method, headers}
+
+        return await fetch(url, options)
+    }
 }
