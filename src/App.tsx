@@ -3,16 +3,19 @@ import './App.scss'
 import { Navbar } from './components/navbar/Navbar'
 import { MainView } from './components/main-view/MainView'
 import { TopBar } from './components/top-bar/TopBar'
-import { NowPlayingBar } from './components/now-playing-bar/NowPlayingBar'
+import NowPlayingBar from './components/now-playing-bar/NowPlayingBar'
 import { connect, ConnectedProps } from 'react-redux'
 import { RootState } from './store/root.state'
 import { setToken } from './store/user/user.actions'
 import { fetchSongs, playSong } from './store/spotify/spotify.actions'
-import getTrackSelector from "./store/spotify/spotify.selector";
+import getTrackSelector from "./store/spotify/spotify.selectors";
+import getAudioTrack from "./store/player/player.selectors";
 
 const mapState = (state: RootState) => ({
   token: state.user.token,
-  song: getTrackSelector(state)
+  song: getTrackSelector(state),
+  isPlaying: state.player.isPlaying,
+  audioTrack: getAudioTrack(state)
 })
 
 const mapDispatch = {
@@ -51,9 +54,12 @@ function App (props: Props) {
   }, [])
 
   useEffect(() => {
-    const audio = new Audio(props.song);
-    // audio.play()
-  }, [props.song])
+    if (props.isPlaying) {
+      props.audioTrack.play()
+    } else {
+      props.audioTrack.pause()
+    }
+  }, [props.isPlaying])
 
   return (
     <div className="top-container">
