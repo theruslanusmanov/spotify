@@ -7,7 +7,7 @@ import {
   loadPlaylistsError,
   loadPlaylistsSuccess,
 } from './spotify.actions'
-import { SpotifyApiService } from '../../services/spotify-api.service'
+import { SpotifyApiService } from '../../services/api/spotify-api.service'
 
 export function * fetchSongsWatcher () {
   yield takeEvery(fetchSongs.type, loadSongsSagaWorker)
