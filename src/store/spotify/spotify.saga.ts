@@ -7,7 +7,7 @@ import {
 import {SpotifyApiService} from '../../services/spotify-api.service'
 
 export function* spotifySagaWatcher() {
-    const action = yield takeEvery(fetchSongs.type, loadSongsSagaWorker)
+    yield takeEvery(fetchSongs.type, loadSongsSagaWorker)
 }
 
 const spotifyApiService = new SpotifyApiService()
