@@ -1,5 +1,5 @@
 export const userInitialState: UserState = {
-  token: ''
+  token: '',
 }
 
 export interface UserState {

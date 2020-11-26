@@ -38,5 +38,5 @@ export {
   playSong,
   stopSong,
   pauseSong,
-  resumeSong
+  resumeSong,
 }
