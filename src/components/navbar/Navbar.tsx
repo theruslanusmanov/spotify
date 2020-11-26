@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     setMenu({ ...menu, home: true })
-  }, [])
+  }, [menu])
 
   return (
     <div className="navbar">
