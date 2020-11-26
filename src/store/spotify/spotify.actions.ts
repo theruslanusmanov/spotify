@@ -26,6 +26,13 @@ const stopSong = createAction<any>(`${PREFIX}/stopSong`)
 const pauseSong = createAction<any>(`${PREFIX}/pauseSong`)
 const resumeSong = createAction<any>(`${PREFIX}/resumeSong`)
 
+/**
+ * Playlists
+ */
+const loadPlaylists = createAction<any>(`${PREFIX}/loadPlaylists`)
+const loadPlaylistsSuccess = createAction<any>(`${PREFIX}/loadPlaylistsSuccess`)
+const loadPlaylistsError = createAction<any>(`${PREFIX}/loadPlaylistsError`)
+
 export {
   fetchSongs,
   fetchSongsPending,
@@ -39,4 +46,7 @@ export {
   stopSong,
   pauseSong,
   resumeSong,
+  loadPlaylists,
+  loadPlaylistsSuccess,
+  loadPlaylistsError
 }
