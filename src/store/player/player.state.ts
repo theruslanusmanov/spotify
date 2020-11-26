@@ -1,6 +1,6 @@
 export const playerInitialState: PlayerState = {
   isPlaying: false,
-  audio: null
+  audio: null,
 }
 
 export interface PlayerState {

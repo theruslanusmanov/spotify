@@ -1,3 +1,3 @@
 import playerReducer from './player.reducer'
 
-export {playerReducer};
+export { playerReducer }

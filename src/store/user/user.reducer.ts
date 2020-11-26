@@ -11,4 +11,4 @@ export const userReducer = (state = {}, action: any) => {
   }
 }
 
-export default userReducer;
+export default userReducer

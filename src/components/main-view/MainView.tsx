@@ -1,10 +1,6 @@
-import React from 'react';
-import './MainView.scss';
+import React from 'react'
+import './MainView.scss'
 
-export const MainView: React.FC = () => {
-  return (
-    <div className="main-view">
-
-    </div>
-  )
-}
+export const MainView: React.FC = () => (
+  <div className="main-view"/>
+)

@@ -1,3 +1,3 @@
 import spotifyReducer from './spotify.reducer'
 
-export {spotifyReducer};
+export { spotifyReducer }
