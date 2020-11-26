@@ -1,7 +1,9 @@
 export const spotifyInitialState: SpotifyState = {
-  tracks: [],
+  tracks: {},
+  playlists: {},
 }
 
 export interface SpotifyState {
   tracks: any
+  playlists: any
 }

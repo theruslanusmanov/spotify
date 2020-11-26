@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
+import { RootState } from '../../store/root.state'
+import { useSelector } from 'react-redux'
 
 type Menu = {
   home: boolean,
@@ -13,12 +15,19 @@ const initMenu = {
   library: false,
 }
 
-export const Navbar: React.FC = () => {
+const Navbar: React.FC = () => {
+  const playlists = useSelector(
+    (state: RootState) => state?.spotify?.playlists?.items)
+
   const [menu, setMenu] = useState<Menu>(initMenu)
 
   useEffect(() => {
     setMenu({ ...menu, home: true })
-  }, [menu])
+  }, [])
+
+  useEffect(() => {
+    console.log(playlists)
+  }, [playlists])
 
   return (
     <div className="navbar">
@@ -154,8 +163,15 @@ export const Navbar: React.FC = () => {
             </div>
             <span>Create Playlist</span>
           </li>
+          {
+            playlists?.map((value: any, index: any) => {
+              return <li key={index}><h1>{value.name}</h1></li>
+            })
+          }
         </ul>
       </div>
     </div>
   )
 }
+
+export default Navbar

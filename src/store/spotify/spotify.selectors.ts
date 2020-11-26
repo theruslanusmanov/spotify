@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect'
 import { RootState } from '../root.state'
 
-const getTracks = (state: RootState) => state?.spotify?.tracks
+export const getTracks = (state: RootState) => state?.spotify?.tracks
+export const getPlaylists = (state: RootState) => state?.spotify?.playlists?.items
 
 const getTrackSelector = createSelector(
   [getTracks],

@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import './App.scss'
 import { connect, ConnectedProps } from 'react-redux'
-import { Navbar } from './components/navbar/Navbar'
+import Navbar from './components/navbar/Navbar'
 import { MainView } from './components/main-view/MainView'
 import { TopBar } from './components/top-bar/TopBar'
 import NowPlayingBar from './components/now-playing-bar/NowPlayingBar'
 import { RootState } from './store/root.state'
 import { setToken } from './store/user/user.actions'
-import { fetchSongs, playSong } from './store/spotify/spotify.actions'
 import getTrackSelector from './store/spotify/spotify.selectors'
 import getAudioTrack from './store/player/player.selectors'
+import {spotifyActions} from './store/spotify'
 
 const mapState = (state: RootState) => ({
   token: state.user.token,
@@ -20,8 +20,9 @@ const mapState = (state: RootState) => ({
 
 const mapDispatch = {
   setToken: (token: string) => setToken(token),
-  playSong: (token: string) => playSong(token),
-  fetchSongs: (token: string) => fetchSongs(token),
+  playSong: (token: string) => spotifyActions.playSong(token),
+  fetchSongs: (token: string) => spotifyActions.fetchSongs(token),
+  loadPlaylists: (token: string) => spotifyActions.loadPlaylists(token),
 }
 
 const connector = connect(mapState, mapDispatch)
@@ -30,17 +31,17 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux
 
-function App ({
-  isPlaying,
-  audioTrack,
-  setToken,
-  playSong,
-  fetchSongs,
-}: Props) {
+function App (props: Props) {
+  const {
+    isPlaying,
+    audioTrack,
+    setToken,
+    playSong,
+    fetchSongs,
+    loadPlaylists
+  } = props
 
   useEffect(() => {
-    /* const authService = new AuthorizationService();
-    authService.authorize().then(r => console.log(r)); */
     const hashParams: any = {}
     let e
     const r = /([^&;=]+)=?([^&;]*)/g
@@ -53,10 +54,11 @@ function App ({
       window.location.href = 'https://accounts.spotify.com/authorize?client_id=230be2f46909426b8b80cac36446b52a&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:3000/callback'
     } else {
       setToken(hashParams.access_token)
-      playSong(hashParams.access_token)
-      fetchSongs(hashParams.access_token)
+/*      playSong(hashParams.access_token)
+      fetchSongs(hashParams.access_token)*/
+      loadPlaylists(hashParams.access_token)
     }
-  }, [fetchSongs, playSong, setToken])
+  }, [])
 
   useEffect(() => {
     if (isPlaying) {
@@ -64,7 +66,7 @@ function App ({
     } else {
       audioTrack.pause()
     }
-  }, [isPlaying, audioTrack])
+  }, [isPlaying])
 
   return (
     <div className="top-container">
