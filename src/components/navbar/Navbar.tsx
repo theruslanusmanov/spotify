@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
 import { RootState } from '../../store/root.state'
 import { useSelector } from 'react-redux'
+import { useHistory, useLocation } from 'react-router-dom'
 
 type Menu = {
   home: boolean,
@@ -16,6 +17,8 @@ const initMenu = {
 }
 
 const Navbar: React.FC = () => {
+  const history = useHistory();
+
   const playlists = useSelector(
     (state: RootState) => state?.spotify?.playlists?.items)
 
@@ -26,8 +29,14 @@ const Navbar: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    console.log(playlists)
-  }, [playlists])
+    if (menu.home) {
+      history.push('/')
+    } else if (menu.search) {
+      history.push('/search')
+    } else {
+      history.push('/library')
+    }
+  }, [menu])
 
   return (
     <div className="navbar">
@@ -44,8 +53,7 @@ const Navbar: React.FC = () => {
             className={menu.home ? 'active' : ''}
             onClick={() => setMenu({ ...initMenu, home: true })}
           >
-            {
-              menu.home
+            {menu.home
                 ? (
                   <svg
                     viewBox="0 0 512 512"
@@ -71,8 +79,7 @@ const Navbar: React.FC = () => {
                       fill="#b3b3b3"
                     />
                   </svg>
-                )
-            }
+                )}
             <span>Home</span>
           </li>
           <li
