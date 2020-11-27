@@ -10,6 +10,7 @@ import getTrackSelector from './store/spotify/spotify.selectors'
 import getAudioTrack from './store/player/player.selectors'
 import { spotifyActions } from './store/spotify'
 import { userActions } from './store/user'
+import { playerActions } from './store/player'
 
 function App () {
   const dispatch = useDispatch()
@@ -22,7 +23,7 @@ function App () {
   const audioTrack = useSelector((state: RootState) => getAudioTrack(state))
 
   useEffect(() => {
-    const hashParams: any = {}
+   /* const hashParams: any = {}
     let e
     const r = /([^&;=]+)=?([^&;]*)/g
     const q = window.location.hash.substring(1)
@@ -34,10 +35,11 @@ function App () {
       window.location.href = 'https://accounts.spotify.com/authorize?client_id=230be2f46909426b8b80cac36446b52a&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:3000/callback'
     } else {
       dispatch(userActions.setToken(hashParams.access_token))
-      /*      playSong(hashParams.access_token)
-            fetchSongs(hashParams.access_token)*/
+      /!*      playSong(hashParams.access_token)
+            fetchSongs(hashParams.access_token)*!/
       dispatch(spotifyActions.loadPlaylists(hashParams.access_token))
-    }
+      dispatch(playerActions.loadRecentlyPlayedTracks(hashParams.access_token))
+    }*/
   }, [])
 
   useEffect(() => {
@@ -50,7 +52,6 @@ function App () {
 
   return (
     <div className="top-container">
-      <TopBar/>
       <Navbar/>
       <NowPlayingBar/>
       <MainView/>
