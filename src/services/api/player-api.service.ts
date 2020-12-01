@@ -11,10 +11,10 @@ interface PlayerApi {
 }
 
 export class PlayerApiService implements ApiService, PlayerApi {
-  private static readonly HOST = 'https://api.spotify.com'
+  private readonly HOST = 'https://api.spotify.com'
 
   public async getRecentlyPlayedTracks (token: string): Promise<any> {
-    const url = `${PlayerApiService.HOST}/v1/me/player/recently-played`
+    const url = `${this.HOST}/v1/me/player/recently-played`
 
     const method = 'GET'
     const headers = new Headers({ Authorization: `Bearer ${token}` })
