@@ -1,5 +1,5 @@
-import { createSelector } from 'reselect'
-import { RootState } from '../root.state'
+import {createSelector} from 'reselect'
+import {RootState} from '../root.state'
 
 const getPlayer = (state: RootState) => state?.player?.audio
 

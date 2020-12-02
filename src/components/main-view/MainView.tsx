@@ -1,8 +1,8 @@
 import React from 'react'
 import './MainView.scss'
-import { Route, Switch } from 'react-router-dom'
-import { routes } from '../../router/routes'
-import { TopBar } from '../top-bar/TopBar'
+import {Route, Switch} from 'react-router-dom'
+import {routes} from '../../router/routes'
+import {TopBar} from '../top-bar/TopBar'
 
 export const MainView: React.FC = () => (
   <div className="main-view">

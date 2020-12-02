@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit'
+import {createAction} from '@reduxjs/toolkit'
 
 const PREFIX = 'spotify'
 

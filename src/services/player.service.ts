@@ -1,18 +1,18 @@
 interface Player {
 
-  setAudio (audio: any): void
+  setAudio(audio: any): void
 
-  play (): void
+  play(): void
 }
 
 export class PlayerService implements Player {
   private audio: any
 
-  public setAudio (audio: any): void {
+  public setAudio(audio: any): void {
     this.audio = audio
   }
 
-  public play (): void {
+  public play(): void {
     this.audio.play()
   }
 }

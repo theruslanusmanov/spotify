@@ -1,5 +1,5 @@
 import userReducer from './user.reducer'
-import { userInitialState } from './user.state'
+import {userInitialState} from './user.state'
 import * as userActions from './user.actions'
 
-export { userActions, userReducer, userInitialState }
+export {userActions, userReducer, userInitialState}

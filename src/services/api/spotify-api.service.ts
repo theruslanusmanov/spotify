@@ -1,4 +1,4 @@
-import { ApiService } from './api-service'
+import {ApiService} from './api-service'
 
 interface SpotifyApi {
 
@@ -8,7 +8,7 @@ interface SpotifyApi {
    * @param token - A valid access token from the Spotify Accounts service.
    * @returns: tracks
    */
-  getTracks (token: string): Promise<any>
+  getTracks(token: string): Promise<any>
 
   /**
    * GET: /v1/me/playlists
@@ -16,30 +16,30 @@ interface SpotifyApi {
    * @param token - A valid access token from the Spotify Accounts service.
    * @returns: playlists
    */
-  getPlaylists (token: string): Promise<any>
+  getPlaylists(token: string): Promise<any>
 }
 
 export class SpotifyApiService implements ApiService, SpotifyApi {
   private readonly HOST = 'https://api.spotify.com'
 
-  public async getTracks (token: string): Promise<any> {
+  public async getTracks(token: string): Promise<any> {
     const url = `${this.HOST}/v1/me/tracks?limit=50`
 
     const method = 'GET'
-    const headers = new Headers({ Authorization: `Bearer ${token}` })
+    const headers = new Headers({Authorization: `Bearer ${token}`})
 
-    const options = { method, headers }
+    const options = {method, headers}
 
     return await fetch(url, options)
   }
 
-  public async getPlaylists (token: string): Promise<any> {
+  public async getPlaylists(token: string): Promise<any> {
     const url = `${this.HOST}/v1/me/playlists?limit=50`
 
     const method = 'GET'
-    const headers = new Headers({ Authorization: `Bearer ${token}` })
+    const headers = new Headers({Authorization: `Bearer ${token}`})
 
-    const options = { method, headers }
+    const options = {method, headers}
 
     return await fetch(url, options)
   }

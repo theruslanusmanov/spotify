@@ -21,6 +21,7 @@ rules:
   import/no-unresolved: off
   import/extension: off
   no-use-before-define: off
+  indent: [2, 2]
 overrides:
   - files:
       - '**/*.ts?(x)'
@@ -28,3 +29,4 @@ overrides:
       additional-typescript-only-rule: off
       import/extension: off
       react/jsx-filename-extension: [ 2, { 'extensions': [ '.js', '.jsx', '.ts', '.tsx' ] } ]
+      indent: [2, 2]

@@ -1,4 +1,4 @@
-import { ApiService } from './api-service'
+import {ApiService} from './api-service'
 
 export type AuthorizeParams = {
 
@@ -52,7 +52,7 @@ interface AuthorizationApi {
    *
    * Your application sends a request to the Spotify Accounts service.
    */
-  authorize (params: AuthorizeParams): Promise<any>
+  authorize(params: AuthorizeParams): Promise<any>
 
   /**
    * POST https://accounts.spotify.com/api/token
@@ -61,13 +61,13 @@ interface AuthorizationApi {
    * you will need to exchange it with an access token by making a POST request
    * to the Spotify Accounts service, this time to its /api/token endpoint
    */
-  token (params: TokenParams): Promise<any>
+  token(params: TokenParams): Promise<any>
 }
 
 export class AuthorizationApiService implements ApiService, AuthorizationApi {
   private readonly HOST = 'https://accounts.spotify.com'
 
-  public async authorize (params: AuthorizeParams): Promise<any> {
+  public async authorize(params: AuthorizeParams): Promise<any> {
     const url = new URL(`${this.HOST}/authorize`);
     // @ts-ignore
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
@@ -75,12 +75,12 @@ export class AuthorizationApiService implements ApiService, AuthorizationApi {
     const method = 'GET'
     const headers = new Headers()
 
-    const options = { method, headers }
+    const options = {method, headers}
 
     return await fetch(url.toString(), options)
   }
 
-  public async token (params: TokenParams): Promise<any> {
+  public async token(params: TokenParams): Promise<any> {
     const url = `${this.HOST}/api/token`
 
     const method = 'POST'
@@ -88,7 +88,7 @@ export class AuthorizationApiService implements ApiService, AuthorizationApi {
       'Content-Type': 'application/x-www-form-urlencoded'
     })
 
-    const options = { method, headers }
+    const options = {method, headers}
 
     return await fetch(url, options)
   }

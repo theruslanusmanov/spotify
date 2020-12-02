@@ -5,7 +5,7 @@ const REDIRECT_URI = 'http://localhost:3000/' // Your redirect uri
 const HOST = 'https://accounts.spotify.com'
 
 class AuthorizationService {
-  authorize (): Promise<any> {
+  authorize(): Promise<any> {
     const params = new URLSearchParams({
       response_type: 'code',
       client_id: CLIENT_ID,

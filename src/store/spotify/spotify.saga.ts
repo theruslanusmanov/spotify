@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import {call, put, takeEvery} from 'redux-saga/effects'
 import {
   fetchSongs,
   fetchSongsError,
@@ -7,19 +7,19 @@ import {
   loadPlaylistsError,
   loadPlaylistsSuccess,
 } from './spotify.actions'
-import { SpotifyApiService } from '../../services/api/spotify-api.service'
+import {SpotifyApiService} from '../../services/api/spotify-api.service'
 
-export function * fetchSongsWatcher () {
+export function* fetchSongsWatcher() {
   yield takeEvery(fetchSongs.type, loadSongsSagaWorker)
 }
 
-export function * loadPlaylistsWatcher () {
+export function* loadPlaylistsWatcher() {
   yield takeEvery(loadPlaylists.type, loadPlaylistsWorker)
 }
 
 const spotifyApiService = new SpotifyApiService()
 
-function * loadSongsSagaWorker (action: any) {
+function* loadSongsSagaWorker(action: any) {
   try {
     const response = yield call(spotifyApiService.getTracks, action.payload)
     const json = yield response.json()
@@ -29,7 +29,7 @@ function * loadSongsSagaWorker (action: any) {
   }
 }
 
-function * loadPlaylistsWorker (action: any) {
+function* loadPlaylistsWorker(action: any) {
   try {
     const response = yield call(spotifyApiService.getPlaylists, action.payload)
     const json = yield response.json()
