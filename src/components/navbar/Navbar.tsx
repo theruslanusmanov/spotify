@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.scss'
 import { RootState } from '../../store/root.state'
 import { useSelector } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 type Menu = {
   home: boolean,

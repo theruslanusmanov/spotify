@@ -22,5 +22,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# IDEA files
 /.idea
-/.eslintcache
+
+# Eslint cache
+.eslintcache
+
+# Yarn
+yarn.lock
+
+package-lock.json
