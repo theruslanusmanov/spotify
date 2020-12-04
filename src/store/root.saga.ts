@@ -4,9 +4,9 @@ import {playerSagas} from './player/player.saga'
 import {authorizationSagas} from "./authorization/authorization.saga";
 
 export const sagas = [
+  ...authorizationSagas,
   ...spotifySagas,
   ...playerSagas,
-  ...authorizationSagas
 ]
 
 export default function* rootSaga() {

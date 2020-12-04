@@ -1,5 +1,12 @@
 import {ApiService} from './api-service'
 
+export enum Config {
+  CLIENT_ID = '6e313238e1804ca3891543ae4f2b0ee3', // Your client id
+  CLIENT_SECRET = '734d563063e94b3fa370e470ae885e06', // Your secret
+  REDIRECT_URI = 'http://localhost:3000/', // Your redirect uri
+  HOST = 'https://accounts.spotify.com'
+}
+
 export type AuthorizeParams = {
 
   /**
@@ -64,11 +71,14 @@ interface AuthorizationApi {
   token(params: TokenParams): Promise<any>
 }
 
-export class AuthorizationApiService implements ApiService, AuthorizationApi {
-  private readonly HOST = 'https://accounts.spotify.com'
+export class AuthorizationApiService extends ApiService implements AuthorizationApi {
+
+  readonly HOST = 'https://accounts.spotify.com'
 
   public async authorize(params: AuthorizeParams): Promise<any> {
+    console.log(this)
     const url = new URL(`${this.HOST}/authorize`);
+
     // @ts-ignore
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
 
