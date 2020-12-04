@@ -1,3 +1,4 @@
 export abstract class ApiService {
-  static readonly HOST: string
+
+  abstract readonly HOST: string
 }

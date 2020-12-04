@@ -19,8 +19,9 @@ interface SpotifyApi {
   getPlaylists(token: string): Promise<any>
 }
 
-export class SpotifyApiService implements ApiService, SpotifyApi {
-  private readonly HOST = 'https://api.spotify.com'
+export class SpotifyApiService extends ApiService implements SpotifyApi {
+
+  readonly HOST = 'https://api.spotify.com'
 
   public async getTracks(token: string): Promise<any> {
     const url = `${this.HOST}/v1/me/tracks?limit=50`
