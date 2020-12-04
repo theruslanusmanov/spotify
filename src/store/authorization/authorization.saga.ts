@@ -11,7 +11,7 @@ const authorizationApiService = new AuthorizationApiService()
 function* authorizeWorker(action: any) {
   try {
     yield call(
-      authorizationApiService.authorize,
+      [authorizationApiService, authorizationApiService.authorize],
       action.payload
     )
   } catch (error) {

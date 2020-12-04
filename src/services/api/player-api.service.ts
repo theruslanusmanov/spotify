@@ -12,7 +12,7 @@ interface PlayerApi {
 
 export class PlayerApiService extends ApiService implements PlayerApi {
 
-  readonly HOST = 'https://api.spotify.com'
+  protected readonly HOST = 'https://api.spotify.com'
 
   public async getRecentlyPlayedTracks(token: string): Promise<any> {
     const url = `${this.HOST}/v1/me/player/recently-played`
