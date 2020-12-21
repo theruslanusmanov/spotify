@@ -73,7 +73,7 @@ interface AuthorizationApi {
 
 export class AuthorizationApiService extends ApiService implements AuthorizationApi {
 
-  readonly HOST = 'https://accounts.spotify.com'
+  protected readonly HOST = 'https://accounts.spotify.com'
 
   public async authorize(params: AuthorizeParams): Promise<any> {
     console.log(this)

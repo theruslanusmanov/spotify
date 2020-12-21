@@ -21,7 +21,7 @@ const spotifyApiService = new SpotifyApiService()
 
 function* loadSongsSagaWorker(action: any) {
   try {
-    const response = yield call(spotifyApiService.getTracks, action.payload)
+    const response = yield call([spotifyApiService, spotifyApiService.getTracks], action.payload)
     const json = yield response.json()
     yield put(fetchSongsSuccess(json))
   } catch (error) {
@@ -31,7 +31,7 @@ function* loadSongsSagaWorker(action: any) {
 
 function* loadPlaylistsWorker(action: any) {
   try {
-    const response = yield call(spotifyApiService.getPlaylists, action.payload)
+    const response = yield call([spotifyApiService, spotifyApiService.getPlaylists], action.payload)
     const json = yield response.json()
     yield put(loadPlaylistsSuccess(json))
   } catch (error) {

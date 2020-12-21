@@ -14,7 +14,7 @@ const playerApiService = new PlayerApiService()
 
 function* loadRecentlyPlayedTracksWorker(action: any) {
   try {
-    const response = yield call(playerApiService.getRecentlyPlayedTracks,
+    const response = yield call([playerApiService, playerApiService.getRecentlyPlayedTracks],
       action.payload)
     const json = yield response.json()
     yield put(loadRecentlyPlayedTracksSuccess(json))
