@@ -29,13 +29,13 @@ const Navbar: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (menu.home) {
+    /*if (menu.home) {
       history.push('/')
     } else if (menu.search) {
       history.push('/search')
     } else {
       history.push('/library')
-    }
+    }*/
   }, [menu])
 
   return (
