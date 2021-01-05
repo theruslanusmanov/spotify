@@ -29,6 +29,22 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const result = getUserTracks();
+    result.then(res => console.log(res));
+  }, [token])
+
+  const getUserTracks = async () => {
+    const url = `https://api.spotify.com/v1/me/tracks`
+
+    const method = 'GET'
+    const headers = new Headers({Authorization: `Bearer ${token}`})
+
+    const options = {method, headers}
+    let response = await fetch(url, options)
+    return await response.json();
+  }
+
   return (
     <div className="top-container">
       <Navbar/>
