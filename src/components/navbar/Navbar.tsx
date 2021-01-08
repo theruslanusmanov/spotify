@@ -2,41 +2,41 @@ import React, {useEffect, useState} from 'react'
 import './Navbar.scss'
 import {RootState} from '../../store/root.state'
 import {useSelector} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom'
 
-type Menu = {
-  home: boolean,
-  search: boolean,
-  library: boolean
-}
-
-const initMenu = {
-  home: false,
-  search: false,
-  library: false,
+enum NavItem {
+  HOME,
+  SEARCH,
+  LIBRARY,
+  TRACKS
 }
 
 const Navbar: React.FC = () => {
   const history = useHistory();
+  const location = useLocation();
 
   const playlists = useSelector(
     (state: RootState) => state?.spotify?.playlists?.items)
 
-  const [menu, setMenu] = useState<Menu>(initMenu)
+  const [activeNavItem, setActiveNavItem] = useState<NavItem>(NavItem.HOME)
 
   useEffect(() => {
-    setMenu({...menu, home: true})
-  }, [])
-
-  useEffect(() => {
-    /*if (menu.home) {
-      history.push('/')
-    } else if (menu.search) {
-      history.push('/search')
-    } else {
-      history.push('/library')
-    }*/
-  }, [menu])
+    if (location.pathname !== "/callback") {
+      switch (activeNavItem) {
+      case NavItem.SEARCH:
+        history.push('/search')
+        break;
+      case NavItem.LIBRARY:
+        history.push('/library')
+        break;
+      case NavItem.TRACKS:
+        history.push('/tracks')
+        break;
+      default:
+        history.push('/')
+      }
+    }
+  }, [activeNavItem])
 
   return (
     <div className="navbar">
@@ -50,10 +50,10 @@ const Navbar: React.FC = () => {
       <div className="menu">
         <ul>
           <li
-            className={menu.home ? 'active' : ''}
-            onClick={() => setMenu({...initMenu, home: true})}
+            className={activeNavItem === NavItem.HOME ? 'active' : ''}
+            onClick={() => setActiveNavItem(NavItem.HOME)}
           >
-            {menu.home
+            {activeNavItem === NavItem.HOME
               ? (
                 <svg
                   viewBox="0 0 512 512"
@@ -83,11 +83,11 @@ const Navbar: React.FC = () => {
             <span>Home</span>
           </li>
           <li
-            className={menu.search ? 'active' : ''}
-            onClick={() => setMenu({...initMenu, search: true})}
+            className={activeNavItem === NavItem.SEARCH ? 'active' : ''}
+            onClick={() => setActiveNavItem(NavItem.SEARCH)}
           >
             {
-              menu.search
+              activeNavItem === NavItem.SEARCH
                 ? (
                   <svg
                     viewBox="0 0 512 512"
@@ -118,11 +118,11 @@ const Navbar: React.FC = () => {
             <span>Search</span>
           </li>
           <li
-            className={menu.library ? 'active' : ''}
-            onClick={() => setMenu({...initMenu, library: true})}
+            className={activeNavItem === NavItem.LIBRARY ? 'active' : ''}
+            onClick={() => setActiveNavItem(NavItem.LIBRARY)}
           >
             {
-              menu.library
+              activeNavItem === NavItem.LIBRARY
                 ? (
                   <svg
                     viewBox="0 0 512 512"
@@ -175,6 +175,17 @@ const Navbar: React.FC = () => {
               return <li key={index}><h1>{value.name}</h1></li>
             })
           }
+          <li className={activeNavItem === NavItem.TRACKS ? 'active' : ''}
+            onClick={() => setActiveNavItem(NavItem.TRACKS)}>
+            <div className="add">
+              <svg role="img" height="16" width="16" viewBox="0 0 16 16" className="Svg-ulyrgf-0 hJgLcF">
+                <path fill="none" d="M0 0h16v16H0z"></path>
+                <path
+                  d="M13.797 2.727a4.057 4.057 0 00-5.488-.253.558.558 0 01-.31.112.531.531 0 01-.311-.112 4.054 4.054 0 00-5.487.253c-.77.77-1.194 1.794-1.194 2.883s.424 2.113 1.168 2.855l4.462 5.223a1.791 1.791 0 002.726 0l4.435-5.195a4.052 4.052 0 001.195-2.883 4.057 4.057 0 00-1.196-2.883z"></path>
+              </svg>
+            </div>
+            <span>Liked Songs</span>
+          </li>
         </ul>
       </div>
     </div>
