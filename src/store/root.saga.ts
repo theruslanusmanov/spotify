@@ -1,14 +1,18 @@
-import {all, fork} from 'redux-saga/effects'
-import {spotifySagas} from './spotify/spotify.saga'
+import {all, fork, take, takeEvery} from 'redux-saga/effects'
+import {playlistsSagas} from './playlists/playlists.saga'
 import {playerSagas} from './player/player.saga'
 import {tracksSagas} from "./tracks/tracks.saga";
+import {userActions} from "./user";
 
 export const sagas = [
-  ...spotifySagas,
+  ...playlistsSagas,
   ...playerSagas,
   ...tracksSagas,
 ]
 
 export default function* rootSaga() {
-  yield all(sagas.map((saga) => fork(saga)))
+  while (true) {
+    yield take(userActions.setToken)
+    yield all(sagas.map((saga) => fork(saga)))
+  }
 }

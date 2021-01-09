@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import './Navbar.scss'
 import {RootState} from '../../store/root.state'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useLocation} from 'react-router-dom'
+import {playlistsActions} from "../../store/playlists";
 
 enum NavItem {
   HOME,
@@ -12,13 +13,18 @@ enum NavItem {
 }
 
 const Navbar: React.FC = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
 
   const playlists = useSelector(
-    (state: RootState) => state?.spotify?.playlists?.items)
+    (state: RootState) => state?.playlists?.playlists?.items)
 
   const [activeNavItem, setActiveNavItem] = useState<NavItem>(NavItem.HOME)
+
+  useEffect(() => {
+    dispatch(playlistsActions.loadPlaylists())
+  }, [])
 
   useEffect(() => {
     if (location.pathname !== "/callback") {

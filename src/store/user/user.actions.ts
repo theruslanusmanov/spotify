@@ -1,4 +1,5 @@
-export const setToken = (token: string) => ({
-  type: 'SET_TOKEN',
-  token,
-})
+import {createAction} from "@reduxjs/toolkit";
+
+const PREFIX = 'user'
+
+export const setToken = createAction<string>(`${PREFIX}/setToken`)
