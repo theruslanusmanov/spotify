@@ -28,7 +28,6 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     dispatch(playlistsActions.loadPlaylists())
-    console.log('loadPlaylists');
   }, [token])
 
   useEffect(() => {

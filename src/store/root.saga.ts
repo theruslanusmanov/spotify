@@ -1,14 +1,14 @@
-import {actionChannel, all, call, fork, select, take} from 'redux-saga/effects'
+import {all, fork} from 'redux-saga/effects'
 import {playlistsSagas} from './playlists/playlists.saga'
 import {playerSagas} from './player/player.saga'
 import {tracksSagas} from "./tracks/tracks.saga";
-import {userActions} from "./user";
-import {getUserToken} from "./user/user.selectors";
+import {searchSagas} from "./search/search.saga";
 
 export const sagas = [
   ...playlistsSagas,
   ...playerSagas,
   ...tracksSagas,
+  ...searchSagas
 ]
 
 export default function* rootSaga() {

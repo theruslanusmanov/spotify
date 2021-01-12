@@ -76,7 +76,6 @@ export class AuthorizationApiService extends ApiService implements Authorization
   protected readonly HOST = 'https://accounts.spotify.com'
 
   public async authorize(params: AuthorizeParams): Promise<any> {
-    console.log(this)
     const url = new URL(`${this.HOST}/authorize`);
 
     // @ts-ignore
