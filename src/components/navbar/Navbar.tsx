@@ -4,6 +4,7 @@ import {RootState} from '../../store/root.state'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useLocation} from 'react-router-dom'
 import {playlistsActions} from "../../store/playlists";
+import {getUserToken} from "../../store/user/user.selectors";
 
 enum NavItem {
   HOME,
@@ -17,6 +18,9 @@ const Navbar: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
 
+  const token = useSelector(
+    (state: RootState) => getUserToken(state))
+
   const playlists = useSelector(
     (state: RootState) => state?.playlists?.playlists?.items)
 
@@ -24,7 +28,8 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     dispatch(playlistsActions.loadPlaylists())
-  }, [])
+    console.log('loadPlaylists');
+  }, [token])
 
   useEffect(() => {
     if (location.pathname !== "/callback") {

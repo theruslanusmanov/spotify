@@ -13,7 +13,6 @@ const tracksApiService = new TracksApiService()
 
 function* loadTracksWorker() {
   try {
-    yield take(userActions.setToken)
     const token = yield select(getUserToken);
     const response = yield call(
       [tracksApiService, tracksApiService.getTracks],
