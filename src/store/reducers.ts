@@ -1,18 +1,20 @@
 import {combineReducers} from 'redux'
 import {userReducer} from './user'
 import {RootState} from './root.state'
-import spotifyReducer from './spotify/spotify.reducer'
+import playlistsReducer from './playlists/playlists.reducer'
 import {playerReducer} from './player'
 import {authorizationReducer} from "./authorization";
 import {tracksReducer} from "./tracks";
+import {searchReducer} from "./search";
 
 const rootReducers = combineReducers<RootState>({
   // @ts-ignore
   user: userReducer,
-  spotify: spotifyReducer,
+  playlists: playlistsReducer,
   player: playerReducer,
   authorization: authorizationReducer,
   tracks: tracksReducer,
+  search: searchReducer
 })
 
 export default rootReducers
