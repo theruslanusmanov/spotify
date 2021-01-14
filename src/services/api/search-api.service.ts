@@ -9,13 +9,13 @@ export enum QueryType {
   EPISODE = 'episode'
 }
 
-type QueryParameters = {
-  q: any;
+export type QueryParameters = {
+  q: string;
   type: QueryType;
-  market?: any;
-  limit?: any;
-  offset?: any;
-  includeExternal?: any;
+  market?: string;
+  limit?: string;
+  offset?: string;
+  includeExternal?: string;
 }
 
 interface SearchApi {
@@ -39,7 +39,13 @@ export class SearchApiService extends ApiService implements SearchApi {
 
   protected readonly HOST = 'https://api.spotify.com'
 
+
   public async search(token: string, params: QueryParameters): Promise<any> {
+    let queryString = new URLSearchParams()
+    queryString.append('q', params.q);
+    queryString.append('type', params.type);
+    console.log(queryString);
+
     const url = `${this.HOST}/v1/search?limit=50&q=as&type=artist`
 
     const method = 'GET'
