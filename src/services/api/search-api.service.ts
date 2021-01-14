@@ -1,12 +1,21 @@
 import {ApiService} from './api-service'
 
-type QueryParameters = {
-  q: any;
-  type: any;
-  market: any;
-  limit: any;
-  offset: any;
-  includeExternal: any;
+export enum QueryType {
+  ALBUM = 'album',
+  ARTIST = 'artist',
+  PLAYLIST = 'playlist',
+  TRACK = 'track',
+  SHOW = 'show',
+  EPISODE = 'episode'
+}
+
+export type QueryParameters = {
+  q: string;
+  type: QueryType;
+  market?: string;
+  limit?: string;
+  offset?: string;
+  includeExternal?: string;
 }
 
 interface SearchApi {
@@ -30,8 +39,14 @@ export class SearchApiService extends ApiService implements SearchApi {
 
   protected readonly HOST = 'https://api.spotify.com'
 
+
   public async search(token: string, params: QueryParameters): Promise<any> {
-    const url = `${this.HOST}/v1/search?limit=50`
+    let queryString = new URLSearchParams()
+    queryString.append('q', params.q);
+    queryString.append('type', params.type);
+    console.log(queryString);
+
+    const url = `${this.HOST}/v1/search?limit=50&q=as&type=artist`
 
     const method = 'GET'
     const headers = new Headers({Authorization: `Bearer ${token}`})

@@ -1,7 +1,7 @@
 import {call, put, select, takeEvery} from 'redux-saga/effects'
 import {search, searchError, searchSuccess,} from './search.actions'
 import {getUserToken} from "../user/user.selectors";
-import {SearchApiService} from "../../services/api/search-api.service";
+import {QueryParameters, QueryType, SearchApiService} from "../../services/api/search-api.service";
 
 export function* searchWatcher() {
   yield takeEvery(search, searchWorker)
@@ -12,13 +12,9 @@ const searchApiService = new SearchApiService()
 function* searchWorker() {
   try {
     const token = yield select(getUserToken);
-    const params = {
-      q: '',
-      type: '',
-      market: '',
-      limit: '',
-      offset: '',
-      includeExternal: '',
+    const params: QueryParameters = {
+      q: 'abc',
+      type: QueryType.ARTIST,
     }
     const response = yield call(
       [searchApiService, searchApiService.search],
