@@ -13,7 +13,9 @@ export const MainView: React.FC = () => (
           key={i}
           path={route.path}
           render={props => (
-            <route.component {...props}/>
+            <div className="main-view__content">
+              <route.component {...props}/>
+            </div>
           )}
         />
       ))}
