@@ -1,6 +1,43 @@
 .liked-songs-card {
-  width: 480px;
-  height: 306px;
   background: linear-gradient(149.46deg,#450af5,#8e8ee5 99.16%);
   border-radius: 4px;
+  grid-column: span 2;
+  height: inherit;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+  padding: 20px;
+  background: #181818;
+  border-radius: 4px;
+  isolation: isolate;
+  width: 100%;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
+
+.playlists {
+  --minimumColumnWidth: 180px;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill,minmax(var(--minimumColumnWidth),1fr));
+
+  &__item {
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    padding: 16px;
+    background: #181818;
+    border-radius: 4px;
+    isolation: isolate;
+    width: 100%;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+    height: 272px;
+  }
 }
