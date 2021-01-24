@@ -22,7 +22,30 @@ export const Search: React.FC = () => {
 
   return (
     <>
-      <h1>Search</h1>
+      <h2>Your top genres</h2>
+      <div className="top-genres">
+        <div className="top-genres__item"></div>
+        <div className="top-genres__item"></div>
+        <div className="top-genres__item"></div>
+        <div className="top-genres__item"></div>
+      </div>
+      <h2>Browse all</h2>
+      <div className="genres">
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+        <div className="genres__item"></div>
+      </div>
       <ul>
         {searchResults ? searchResults.map((item: any, k: any) => {
           return (
