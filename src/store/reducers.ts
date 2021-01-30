@@ -6,6 +6,7 @@ import {playerReducer} from './player'
 import {authorizationReducer} from "./authorization";
 import {tracksReducer} from "./tracks";
 import {searchReducer} from "./search";
+import {homeReducer} from "./home";
 
 const rootReducers = combineReducers<RootState>({
   // @ts-ignore
@@ -14,7 +15,8 @@ const rootReducers = combineReducers<RootState>({
   player: playerReducer,
   authorization: authorizationReducer,
   tracks: tracksReducer,
-  search: searchReducer
+  search: searchReducer,
+  home: homeReducer,
 })
 
 export default rootReducers

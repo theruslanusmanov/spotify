@@ -3,12 +3,14 @@ import {playlistsSagas} from './playlists/playlists.saga'
 import {playerSagas} from './player/player.saga'
 import {tracksSagas} from "./tracks/tracks.saga";
 import {searchSagas} from "./search/search.saga";
+import {shortcutsSagas} from "./home/home.saga";
 
 export const sagas = [
   ...playlistsSagas,
   ...playerSagas,
   ...tracksSagas,
-  ...searchSagas
+  ...searchSagas,
+  ...shortcutsSagas,
 ]
 
 export default function* rootSaga() {
