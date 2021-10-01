@@ -1,0 +1,23 @@
+.home {
+    grid-gap: 24px;
+    display: grid;
+    padding: 0 32px;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-rows: 1fr;
+    overflow-y: hidden;
+    --minimumColumnWidth: 270px;
+    row-gap: 16px;
+    grid-gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(var(--minimumColumnWidth), 1fr));
+}
+
+.playlist-card {
+    background-color: rgba(255,255,255,.1);
+    border-radius: 4px;
+    height: 80px;
+}
