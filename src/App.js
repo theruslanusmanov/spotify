@@ -1,10 +1,13 @@
 import './App.css'
+import { Route } from "wouter";
 import { Shell } from './components/shell/Shell'
+import { Auth } from './components/auth/Auth'
 
 function App () {
   return (
     <div className="App">
-      <Shell/>
+      <Route path="/" component={Shell} />
+      <Route path="/auth" component={Auth} />
     </div>
   )
 }
