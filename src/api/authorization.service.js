@@ -1,6 +1,6 @@
 const CLIENT_ID = '6e313238e1804ca3891543ae4f2b0ee3'
 const CLIENT_SECRET = '734d563063e94b3fa370e470ae885e06'
-const REDIRECT_URI = 'http://localhost:3000'
+const REDIRECT_URI = 'http://localhost:3000/auth'
 const HOST = 'https://accounts.spotify.com'
 
 // Change the scopes to what you need
@@ -22,6 +22,6 @@ export const spotifyUrl = (state) => {
 export class AuthorizationService {
 
   static authorize () {
-    // window.location.href = spotifyUrl();
+    window.location.href = spotifyUrl();
   }
 }

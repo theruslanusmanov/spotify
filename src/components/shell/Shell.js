@@ -7,9 +7,10 @@ import { AuthorizationService } from '../../api/authorization.service'
 
 export const Shell = () => {
   useEffect(() => {
-    AuthorizationService.authorize();
-    const token = window.location.hash.substr(1);
-    console.log(token)
+    const userHasAccessToken = localStorage.getItem('access_token')
+    if (!userHasAccessToken) {
+      AuthorizationService.authorize();
+    }
   })
 
   return (
