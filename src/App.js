@@ -1,5 +1,5 @@
 import './App.css'
-import { Route } from "wouter";
+import { Route, Router } from 'wouter'
 import { Shell } from './components/shell/Shell'
 import { Auth } from './components/auth/Auth'
 import { useEffect } from 'react'
@@ -11,8 +11,10 @@ function App () {
 
   return (
     <div className="App">
-      <Route path="/" component={Shell} />
-      <Route path="/auth" component={Auth} />
+      <Router base="/spotify">
+        <Route path="/" component={Shell}/>
+        <Route path="/auth" component={Auth}/>
+      </Router>
     </div>
   )
 }
