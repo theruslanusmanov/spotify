@@ -1,5 +1,6 @@
+const isProd = process.env.REACT_APP_ENV === 'prod'
 const CLIENT_ID = '6e313238e1804ca3891543ae4f2b0ee3'
-const REDIRECT_URI = 'http://localhost:3000/auth'
+const REDIRECT_URI = isProd ? '/spotify' : 'http://localhost:3000/auth'
 
 // Change the scopes to what you need
 // https://developer.spotify.com/documentation/general/guides/scopes/
