@@ -8,9 +8,9 @@ function App () {
 
   return (
     <div className="App">
-      <Router base={isProd ? '/spotify' : '/'}>
-        <Route path="/auth" component={Auth}/>
+      <Router base={isProd ? '/spotify' : ''}>
         <Route path="/" component={Shell}/>
+        <Route path="/auth" component={Auth}/>
       </Router>
     </div>
   )
