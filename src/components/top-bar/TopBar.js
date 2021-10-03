@@ -10,7 +10,7 @@ export const TopBar = () => {
   useEffect(() => {
     UserProfileApi.getCurrentUsersProfile()
       .then(response => setProfile(response));
-  })
+  }, [])
 
   return (
       <div className="topbar">
