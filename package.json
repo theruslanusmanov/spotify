@@ -2,7 +2,7 @@
   "name": "spotify",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://theruslanusmanov.github.io/spotify/",
+  "homepage": "/spotify",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -14,8 +14,8 @@
     "wouter": "^2.8.0-alpha.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_ENV=dev react-scripts start",
+    "build": "REACT_APP_ENV=prod react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!@codemirror)/\"",
     "eject": "react-scripts eject"
   },

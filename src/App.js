@@ -2,16 +2,13 @@ import './App.css'
 import { Route, Router } from 'wouter'
 import { Shell } from './components/shell/Shell'
 import { Auth } from './components/auth/Auth'
-import { useEffect } from 'react'
 
 function App () {
-  useEffect(() => {
-    console.log(process.env.PUBLIC_URL)
-  })
+  const isProd = process.env.REACT_APP_ENV === 'prod'
 
   return (
     <div className="App">
-      <Router base="/spotify">
+      <Router base={isProd ? '/spotify' : '/'}>
         <Route path="/" component={Shell}/>
         <Route path="/auth" component={Auth}/>
       </Router>
