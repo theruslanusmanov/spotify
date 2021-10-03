@@ -3,14 +3,14 @@ import './Shell.css'
 import { Sidebar } from '../sidebar/Sidebar'
 import { Home } from '../home/Home'
 import { TopBar } from '../top-bar/TopBar'
-import { AuthorizationService } from '../../api/authorization.service'
+// import { AuthorizationService } from '../../api/authorization.service'
 
 export const Shell = () => {
   useEffect(() => {
-    const userHasAccessToken = localStorage.getItem('access_token')
+    /*const userHasAccessToken = localStorage.getItem('access_token')
     if (!userHasAccessToken) {
       AuthorizationService.authorize();
-    }
+    }*/
   })
 
   return (
