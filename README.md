@@ -1,5 +1,8 @@
 # [Spotify](https://theruslanusmanov.github.io/spotify/)
 
+# API
+[Spotify Web API](https://developer.spotify.com/documentation/web-api/reference/)
+
 # CI/CD
 https://codeburst.io/deploying-a-react-app-using-github-pages-and-github-actions-7fc14d380796
 
