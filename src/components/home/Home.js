@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import './Home.css';
 import {PersonalizationApi} from '../../api/personalization.api';
+import {PlaylistCard} from '../playlist-card/PlaylistCard';
 
 export const Home = () => {
   useEffect(() => {
@@ -12,12 +13,7 @@ export const Home = () => {
       <div className="home">
         <h2>Good morning</h2>
         <div className="grid-container">
-          <div className="playlist-card"></div>
-          <div className="playlist-card"></div>
-          <div className="playlist-card"></div>
-          <div className="playlist-card"></div>
-          <div className="playlist-card"></div>
-          <div className="playlist-card"></div>
+          <PlaylistCard/>
         </div>
       </div>
   )
