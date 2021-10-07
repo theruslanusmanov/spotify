@@ -1,19 +1,16 @@
-import './App.css'
-import { Route, Router } from 'wouter'
-import { Shell } from './components/shell/Shell'
-import { Auth } from './components/auth/Auth'
+import './App.css';
+import {Route} from 'react-router-dom';
+import {Shell} from './components/shell/Shell';
+import {Auth} from './components/auth/Auth';
 
-function App () {
-  const isProd = process.env.REACT_APP_ENV === 'prod'
+function App() {
 
   return (
-    <div className="App">
-      <Router base={isProd ? '/spotify' : ''}>
-        <Route path="/" component={Shell}/>
+      <div className="App">
         <Route path="/auth" component={Auth}/>
-      </Router>
-    </div>
-  )
+        <Route path="/" component={Shell}/>
+      </div>
+  );
 }
 
-export default App
+export default App;
