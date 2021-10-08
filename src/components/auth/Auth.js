@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react'
-import useLocation from 'wouter/use-location'
-
+import React, {useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
 
 export const Auth = () => {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    const token = new URLSearchParams(window.location.hash.substr(1)).get('access_token');
+    const token = new URLSearchParams(window.location.hash.substr(1)).get(
+        'access_token');
     console.log(token);
 
     // Save Token in Local Storage
     localStorage.setItem('access_token', token);
 
     if (localStorage.getItem('access_token')) {
-      setLocation("/")
+      setLocation('/');
     }
-  })
-  return <></>
-}
+  });
+  return <></>;
+};
