@@ -6,13 +6,18 @@ import {TopBar} from '../top-bar/TopBar';
 import {AuthorizationService} from '../../services/authorization.service';
 
 export const Shell = () => {
-  const [token,] = useState(localStorage.getItem('access_token'));
+  const [token, setToken] = useState();
 
   useEffect(() => {
-    if (!token) {
+    const savedToken = localStorage.getItem('access_token')
+
+    console.log(savedToken);
+    if (!savedToken && savedToken == null) {
       AuthorizationService.authorize();
     }
-  });
+
+    setToken(savedToken);
+  }, []);
 
   return (
       <div className="shell">
