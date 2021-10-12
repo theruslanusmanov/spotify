@@ -33,10 +33,13 @@ li > a {
     display: flex;
     gap: 16px;
     align-items: center;
-    background-color: #282828;
 }
 
 li > a > span {
     font-size: 14px;
     font-weight: 700;
+}
+
+.active {
+    background-color: #282828;
 }

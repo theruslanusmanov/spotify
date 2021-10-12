@@ -11,7 +11,7 @@ export const Sidebar = () => (
     </div>
     <ul>
       <li>
-        <a href="/"><Home/><span>Home</span></a>
+        <a href="/" className="active"><Home/><span>Home</span></a>
       </li>
       <li>
         <a href="/search"><Search/><span>Search</span></a>
