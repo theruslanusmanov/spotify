@@ -1,0 +1,35 @@
+.search {
+    padding: 0 32px;
+    height: 100%;
+}
+
+.grid-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    --minimumColumnWidth: 180px;
+    grid-auto-rows: auto;
+    grid-template-rows: repeat(auto-fill, 180px);
+    grid-gap: 24px;
+    grid-template-columns: repeat(auto-fill,minmax(var(--minimumColumnWidth),1fr));
+    grid-column: 1/-1;
+}
+
+.genre-card {
+    background-color: rgb(39, 133, 106);
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.genre-card h3 {
+    font-size: 24px;
+    letter-spacing: -.04em;
+    line-height: 1.3em;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    padding: 16px;
+    position: absolute;
+}
