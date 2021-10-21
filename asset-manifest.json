@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "./static/css/main.0567dd4a.chunk.css",
-    "main.js": "./static/js/main.85fb2ea1.chunk.js",
-    "main.js.map": "./static/js/main.85fb2ea1.chunk.js.map",
+    "main.js": "./static/js/main.59afc2e9.chunk.js",
+    "main.js.map": "./static/js/main.59afc2e9.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.fae05596.js",
     "runtime-main.js.map": "./static/js/runtime-main.fae05596.js.map",
     "static/js/2.d74cb6b8.chunk.js": "./static/js/2.d74cb6b8.chunk.js",
@@ -14,6 +14,7 @@
     "static/js/2.d74cb6b8.chunk.js.LICENSE.txt": "./static/js/2.d74cb6b8.chunk.js.LICENSE.txt",
     "static/media/arrow-down.c793af7f.svg": "./static/media/arrow-down.c793af7f.svg",
     "static/media/home.d1aa92db.svg": "./static/media/home.d1aa92db.svg",
+    "static/media/library.dc62a643.svg": "./static/media/library.dc62a643.svg",
     "static/media/profile.21408087.svg": "./static/media/profile.21408087.svg",
     "static/media/search.e4e8a7f1.svg": "./static/media/search.e4e8a7f1.svg",
     "static/media/spotify-logo.657d5954.svg": "./static/media/spotify-logo.657d5954.svg"
@@ -22,6 +23,6 @@
     "static/js/runtime-main.fae05596.js",
     "static/js/2.d74cb6b8.chunk.js",
     "static/css/main.0567dd4a.chunk.css",
-    "static/js/main.85fb2ea1.chunk.js"
+    "static/js/main.59afc2e9.chunk.js"
   ]
 }
