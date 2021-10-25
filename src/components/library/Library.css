@@ -11,16 +11,31 @@
     grid-auto-rows: auto;
     grid-template-rows: repeat(auto-fill, 180px);
     grid-gap: 24px;
-    grid-template-columns: repeat(auto-fill,minmax(var(--minimumColumnWidth),1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--minimumColumnWidth), 1fr));
     grid-column: 1/-1;
 }
 
-.genre-card {
-    background-color: rgb(39, 133, 106);
-    border: none;
-    border-radius: 8px;
-    overflow: hidden;
+.playlist-card {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background: #181818;
+    border-radius: 4px;
+    isolation: isolate;
+    padding: 16px;
     position: relative;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+}
+
+.playlist-card__cover {
+    margin-bottom: 16px;
+    position: relative;
+    background-color: #333;
+    -webkit-box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+    min-height: 161px;
     width: 100%;
 }
 
@@ -32,4 +47,19 @@
     overflow-wrap: break-word;
     padding: 16px;
     position: absolute;
+}
+
+h4 {
+    color: rgb(179, 179, 179);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 16px;
+    text-transform: none;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
