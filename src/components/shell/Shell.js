@@ -7,6 +7,7 @@ import { TopBar } from '../top-bar/TopBar'
 import { AuthorizationService } from '../../services/authorization.service'
 import { Search } from '../search/Search'
 import { Library } from '../library/Library'
+import { Footer } from '../footer/Footer'
 
 export const Shell = () => {
   const [token, setToken] = useState()
@@ -35,6 +36,7 @@ export const Shell = () => {
                 <Route path="/search" component={Search}/>
                 <Route exact path="/" component={Home}/>
               </div>
+              <Footer/>
             </>
           )
           : null

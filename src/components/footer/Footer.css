@@ -1,0 +1,6 @@
+footer {
+    height: 91px;
+    background-color: #181818;
+    grid-area: now-playing-bar;
+    width: 100%;
+}
