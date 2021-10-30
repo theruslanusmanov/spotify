@@ -5,7 +5,11 @@ export const Footer = () => {
 
   return (
       <footer>
-        <h1>Footer works!</h1>
+        <div className="player-info">
+          <div className="player-info__cover"></div>
+        </div>
+        <div className="player-controls"></div>
+        <div className="player-extra-controls"></div>
       </footer>
   );
 };
