@@ -7,6 +7,7 @@ export const Footer = () => {
       <footer>
         <div className="player-info">
           <div className="player-info__cover"></div>
+          <div className="player-info__name">Song Name</div>
         </div>
         <div className="player-controls"></div>
         <div className="player-extra-controls"></div>

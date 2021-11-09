@@ -16,8 +16,21 @@ footer div {
     height: 56px;
 }
 
+.player-info {
+    display: flex;
+    align-items: center;
+}
+
 .player-info__cover {
     width: 56px;
     height: 56px;
     background-color: #61dafb;
+}
+
+.player-info__name {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 400;
 }
