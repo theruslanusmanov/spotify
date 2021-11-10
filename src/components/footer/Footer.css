@@ -11,9 +11,12 @@ footer {
 }
 
 footer div {
-    background-color: gray;
     width: 25%;
     height: 56px;
+}
+
+svg {
+    fill: #ffffff;
 }
 
 .player-info {
@@ -33,4 +36,28 @@ footer div {
     margin-left: 8px;
     font-size: 14px;
     font-weight: 400;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+}
+
+.player-controls > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-button {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    box-shadow: none;
+    border: none;
+    background-color: #ffffff;
+}
+
+.play-button svg {
+    fill: #000000;
 }
