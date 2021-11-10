@@ -15,7 +15,6 @@ export const Shell = () => {
   useEffect(() => {
     const savedToken = localStorage.getItem('access_token')
 
-    console.log(savedToken)
     if (!savedToken && savedToken == null) {
       AuthorizationService.authorize()
     }

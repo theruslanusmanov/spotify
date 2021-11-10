@@ -9,9 +9,9 @@
     display: grid;
     grid-auto-rows: auto;
     grid-template-rows: 1fr;
-    overflow-y: hidden;
     --minimumColumnWidth: 270px;
     row-gap: 16px;
     grid-gap: 24px;
     grid-template-columns: repeat(auto-fill, minmax(var(--minimumColumnWidth), 1fr));
+    overflow: hidden;
 }
