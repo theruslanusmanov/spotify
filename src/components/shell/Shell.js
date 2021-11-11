@@ -13,14 +13,28 @@ export const Shell = () => {
   const [token, setToken] = useState()
 
   useEffect(() => {
-    const savedToken = localStorage.getItem('access_token')
+    loadAuthToken();
+    checkExpiredToken();
+  }, [])
 
-    if (!savedToken && savedToken == null) {
+  function loadAuthToken() {
+    const token = localStorage.getItem('access_token')
+
+    if (!token && token == null) {
       AuthorizationService.authorize()
     }
 
-    setToken(savedToken)
-  }, [])
+    setToken(token)
+  }
+
+  function checkExpiredToken() {
+    const expiresTime = localStorage.getItem('expires_time')
+
+    if (expiresTime < Date.now()) {
+      localStorage.removeItem('access_token');
+      AuthorizationService.authorize()
+    }
+  }
 
   return (
     <div className="shell">
