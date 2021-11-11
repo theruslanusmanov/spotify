@@ -40,10 +40,19 @@ svg {
 
 .player-controls {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.player-controls > div {
+.player-controls__top, .player-controls__bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.player-controls__top > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,4 +69,10 @@ svg {
 
 .play-button svg {
     fill: #000000;
+}
+
+.progress-bar {
+    background-color: rgba(255,255,255,.3);
+    height: 4px;
+    width: 100%;
 }

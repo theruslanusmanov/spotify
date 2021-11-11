@@ -13,14 +13,19 @@ export const Footer = () => {
           <div className="player-info__name">Song Name</div>
         </div>
         <div className="player-controls">
-          <div className="previous-button">
-            <Previous/>
+          <div className="player-controls__top">
+            <div className="previous-button">
+              <Previous/>
+            </div>
+            <div className="play-button">
+              <Play/>
+            </div>
+            <div className="next-button">
+              <Next/>
+            </div>
           </div>
-          <div className="play-button">
-            <Play/>
-          </div>
-          <div className="next-button">
-            <Next/>
+          <div className="player-controls__bottom">
+            <div className="progress-bar"></div>
           </div>
         </div>
         <div className="player-extra-controls"></div>
