@@ -9,7 +9,7 @@ export class PlaylistsApi {
    * Default: 0 (the first object). Maximum offset: 100.000. Use with limit to get the next set of playlists.'
    */
   static async getCurrentUserPlaylist (limit, offset) {
-    const url = `https://api.spotify.com/v1/me/playlist`
+    const url = `https://api.spotify.com/v1/me/playlists`
 
     const method = 'GET'
     const headers = new Headers({

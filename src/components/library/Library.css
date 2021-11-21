@@ -9,13 +9,14 @@
     display: grid;
     --minimumColumnWidth: 180px;
     grid-auto-rows: auto;
-    grid-template-rows: repeat(auto-fill, 180px);
-    grid-gap: 24px;
+    grid-template-rows: repeat(auto-fill, 292px);
+    grid-gap: 50px;
     grid-template-columns: repeat(auto-fill, minmax(var(--minimumColumnWidth), 1fr));
     grid-column: 1/-1;
 }
 
 .playlist-card {
+    cursor: pointer;
     width: 100%;
     height: fit-content;
     display: flex;
