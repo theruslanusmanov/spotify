@@ -7,7 +7,6 @@ export const Search = () => {
 
   useEffect(() => {
     GenresApi.getRecommendationGenres().then(response => {
-      console.log(response)
       setGenres(response.genres)
     })
   }, [])
