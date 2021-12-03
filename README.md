@@ -1,5 +1,8 @@
 # [Spotify](https://theruslanusmanov.github.io/spotify/)
 
+## Description
+This project basically replicates Spotify Web version.
+
 # API
 [Spotify Web API](https://developer.spotify.com/documentation/web-api/reference/)
 
