@@ -1,4 +1,4 @@
-# [Spotify](https://spotify-livid.vercel.app/)
+# [Spotify](https://theruslanusmanov.github.io/spotify/)
 
 ## Description
 This project basically replicates Spotify Web version.
