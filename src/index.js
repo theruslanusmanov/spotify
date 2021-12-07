@@ -7,11 +7,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-/*const isProd = process.env.REACT_APP_ENV === 'prod'*/
+const isProd = process.env.REACT_APP_ENV === 'prod'
 
 ReactDOM.render(
     <React.StrictMode>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename={isProd ? '/spotify' : ''}>
         <App/>
       </Router>
     </React.StrictMode>,
