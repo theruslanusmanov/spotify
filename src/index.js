@@ -11,7 +11,7 @@ const isProd = process.env.REACT_APP_ENV === 'prod'
 
 ReactDOM.render(
     <React.StrictMode>
-      <Router base={isProd ? '/spotify' : ''}>
+      <Router basename={process.env.PUBLIC_URL}>
         <App/>
       </Router>
     </React.StrictMode>,

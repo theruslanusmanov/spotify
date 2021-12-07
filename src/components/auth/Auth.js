@@ -5,7 +5,6 @@ export const Auth = () => {
   const history = useHistory();
 
   useEffect(() => {
-    debugger;
     const token = new URLSearchParams(window.location.hash.substr(2)).get(
         'access_token');
     const expiresIn = new URLSearchParams(window.location.hash.substr(2)).get(
