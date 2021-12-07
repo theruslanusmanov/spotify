@@ -5,7 +5,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-const isProd = process.env.REACT_APP_ENV === 'prod'
+// const isProd = process.env.REACT_APP_ENV === 'prod'
 
 ReactDOM.render(
     <React.StrictMode>
