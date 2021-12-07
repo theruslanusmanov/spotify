@@ -21,7 +21,7 @@ export const Shell = () => {
     const token = localStorage.getItem('access_token')
 
     if (!token && token == null) {
-      // AuthorizationService.authorize()
+      AuthorizationService.authorize()
     }
 
     setToken(token)

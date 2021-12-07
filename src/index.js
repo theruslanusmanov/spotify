@@ -1,17 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { HashRouter } from 'react-router-dom'
-import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-// const isProd = process.env.REACT_APP_ENV === 'prod'
+const isProd = process.env.REACT_APP_ENV === 'prod'
 
 ReactDOM.render(
     <React.StrictMode>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <Router base={isProd ? '/spotify' : ''}>
         <App/>
-      </HashRouter>
+      </Router>
     </React.StrictMode>,
     document.getElementById('root'),
 );
