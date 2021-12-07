@@ -1,7 +1,7 @@
 const isProd = process.env.REACT_APP_ENV === 'prod'
 const CLIENT_ID = '6e313238e1804ca3891543ae4f2b0ee3'
 const REDIRECT_URI = isProd
-  ? 'https://theruslanusmanov.github.io/spotify/auth'
+  ? 'https://spotify-livid.vercel.app/auth'
   : 'http://localhost:3000/auth'
 
 // Change the scopes to what you need
