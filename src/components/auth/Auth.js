@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useHistory} from 'react-router-dom/cjs/react-router-dom';
 
 export const Auth = () => {
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     const token = new URLSearchParams(window.location.hash.substr(2)).get(
