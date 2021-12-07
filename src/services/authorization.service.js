@@ -23,6 +23,6 @@ export const spotifyUrl = (state) => {
 export class AuthorizationService {
 
   static authorize () {
-    window.location.href = spotifyUrl()
+    // window.location.href = spotifyUrl()
   }
 }
