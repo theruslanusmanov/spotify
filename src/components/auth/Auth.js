@@ -18,7 +18,7 @@ export const Auth = () => {
     localStorage.setItem('expires_time', expiresTime.toString());
 
     if (localStorage.getItem('access_token')) {
-      history.push('/');
+      // history.push('/');
     }
   });
   return <></>;

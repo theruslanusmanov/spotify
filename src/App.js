@@ -6,8 +6,8 @@ import {Auth} from './components/auth/Auth';
 function App() {
   return (
       <div className="App">
-        <Route path="/:access_token(access_token=.*)" component={Auth} />
-        <Route path="/" component={Shell}/>
+        <Route exact path="/:access_token(access_token=.*)" component={Auth} />
+        <Route exact path="/" component={Shell}/>
       </div>
   );
 }
