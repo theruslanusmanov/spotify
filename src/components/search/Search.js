@@ -18,7 +18,10 @@ export const Search = () => {
         {
           genres.map((genre, key) => {
             return (
-              <div className="genre-card" key={key}>
+              <div
+                  className="genre-card"
+                  key={key}
+                  style={{'backgroundColor': `#${Math.floor(Math.random()*16777215).toString(16)}`}}>
                 <h3>{genre}</h3>
               </div>
             )
