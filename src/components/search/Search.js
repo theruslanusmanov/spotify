@@ -15,18 +15,6 @@ export const Search = () => {
     <div className="search">
       <h1>All genres</h1>
       <div className="grid-container">
-        <div className="genre-card">
-          <h3>Rock</h3>
-        </div>
-        <div className="genre-card">
-          <h3>Rock</h3>
-        </div>
-        <div className="genre-card">
-          <h3>Rock</h3>
-        </div>
-        <div className="genre-card">
-          <h3>Rock</h3>
-        </div>
         {
           genres.map((genre, key) => {
             return (
