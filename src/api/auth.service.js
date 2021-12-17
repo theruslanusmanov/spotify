@@ -3,6 +3,7 @@ const CLIENT_SECRET = 'CLIENT_SECRET';
 const REDIRECT_URI = 'http://localhost:3000/callback';
 const queryString = '';
 
+// TODO: Get user access token to implement Cypress tests.
 export class AuthService {
 
   /**
